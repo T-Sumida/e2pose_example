@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "e2pose_example"
+version = "0.1.0"
+description = "E2Pose Example"
+authors = ["T-Sumida <ui.suto05@gmail.com>"]
+license = "Apache License 2.0"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+opencv-python = "^4.7.0"
+onnxruntime-gpu = "1.12"
+
+[tool.poetry.dev-dependencies]
+pysen = {extras = ["lint"], version = "^0.10.3"}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pysen]
+version = "0.9"
+
+[tool.pysen.lint]
+enable_black = true
+enable_flake8 = true
+enable_isort = true
+enable_mypy = true
+mypy_preset = "strict"
+line_length = 88
+py_version = "py38"
+
+[[tool.pysen.lint.mypy_targets]]
+  paths = ["."]
