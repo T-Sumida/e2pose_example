@@ -34,10 +34,10 @@ usage: __main__.py [-h] [--device DEVICE] [--video VIDEO] [--model MODEL] [--thr
 
 optional arguments:
   -h, --help       show this help message and exit
-  --device DEVICE
-  --video VIDEO
-  --model MODEL
-  --thr THR
+  --device DEVICE  カメラデバイスID
+  --video VIDEO    動画ファイルのパス（指定された場合これが優先される）
+  --model MODEL    モデルファイルのパス
+  --thr THR        検出閾値
 ```
 
 ## Author

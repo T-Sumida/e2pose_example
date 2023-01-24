@@ -16,10 +16,10 @@ def get_args() -> argparse.Namespace:
     """
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("--device", type=int, default=0)
-    parser.add_argument("--video", type=str, default=None)
-    parser.add_argument("--model", type=str, default="saved_model/e2epose_resnet50_1x3x512x512.onnx")
-    parser.add_argument("--thr", type=float, default=0.5)
+    parser.add_argument("--device", type=int, default=0, help="カメラデバイスID")
+    parser.add_argument("--video", type=str, default=None, help="動画ファイルのパス（指定された場合これが優先される）")
+    parser.add_argument("--model", type=str, default="e2epose_resnet50_1x3x512x512.onnx", help="モデルファイルのパス")
+    parser.add_argument("--thr", type=float, default=0.5, help="検出閾値")
 
     args = parser.parse_args()
 
