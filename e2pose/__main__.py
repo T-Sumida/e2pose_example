@@ -1,6 +1,7 @@
 import argparse
 import copy
 import time
+import logging
 
 import cv2
 
@@ -50,7 +51,7 @@ def main(args: argparse.Namespace) -> None:
 
             # 結果を描画
             for human in human_list:
-                human.draw(debug_image)
+                human.draw(debug_image, (82, 232, 175))
             
             text = f"Elapsed Time: {(elapsed_time * 1000):.1f}[ms]"
             debug_image = cv2.putText(
@@ -63,13 +64,13 @@ def main(args: argparse.Namespace) -> None:
                 thickness=2,
             )
             
-            cv2.imshow("debug", debug_image)
-            if cv2.waitKey(1) == 27:
+            cv2.imshow("e2pose example", debug_image)
+            if cv2.waitKey(1) & 0xFF == ord("q"):
                 break
     except KeyboardInterrupt:
-        pass
+        logging.info("press ctrl+c")
     except Exception as e:
-        pass
+        logging.error(e)
     finally:
         cap.release()
 
