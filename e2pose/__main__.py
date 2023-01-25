@@ -34,7 +34,10 @@ def main(args: argparse.Namespace) -> None:
     """
     e2pose = E2Pose(args.model, args.thr)
 
-    cap = cv2.VideoCapture(args.device)
+    if args.video is not None:
+        cap = cv2.VideoCapture(args.video)
+    else:
+        cap = cv2.VideoCapture(args.device)
 
     try:
         while True:
